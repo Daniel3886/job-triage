@@ -65,6 +65,15 @@ Soft. Salary outranks it. A role below the target level can be saved when the
 money and the company are right. When there is no salary to break the tie, a
 clean stack carries it.
 
+## Requirements on the person
+
+Checked alongside the gates whenever a posting asks something of the person
+rather than of the stack: a clean criminal record, an education level, a
+driving licence, a security clearance, the right to work in a country. Look it
+up under "Requirements you meet" in `criteria.md`. Listed as met → it passes,
+with no question. Listed as not met → `NOT_INTERESTED`, quoting the line. Not
+listed at all → `UNDECIDED`, with the question naming the requirement.
+
 ## Notes
 
 Every status change carries a note in English that names the gate and quotes the

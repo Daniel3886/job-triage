@@ -38,7 +38,11 @@ the role, separated by " · ".>
 
 Must be: <the kind of work you want>.
 
+Also fine: <neighbouring kinds of work you accept, separated by " · ".>
+
 Reject: <role types you never want, separated by " · ".>
+
+Domain: <does the business domain matter, and which ones are out>.
 
 ---
 
@@ -51,7 +55,11 @@ Reject: <role types you never want, separated by " · ".>
 | Onsite | <cities> |
 | Unspecified | <allowed or not> |
 
-<Edge cases: five days in the office, relocation, time-zone limits.>
+**Office days for hybrid: <at most N a week>.**
+
+**Relocation: <no / yes, to where>.**
+
+<Edge cases: five days in the office, time-zone limits.>
 
 ---
 
@@ -78,6 +86,8 @@ against the top of the posted range.
 
 Target: <levels>. <Which lower levels are acceptable and when.>
 
+One level above the target: <save / save only when … / reject>.
+
 **Ceiling on required years: <N>+ is the maximum.** <What to do above it.>
 
 ---
@@ -89,7 +99,18 @@ satisfied and which disqualify.>
 
 ---
 
-## 9. Case law
+## 9. Requirements you meet
+
+What postings ask of a person rather than of the stack. A posting that asks only
+for something listed here passes it without a question.
+
+- <Criminal record: clean / …>
+- <Education: highest level, and one in progress with its year>
+- <Driving licence, security clearance, right to work in <country>: …>
+
+---
+
+## 10. Case law
 
 One entry per decision that set a precedent, newest first. Date, company, role,
 the verdict and the reason.

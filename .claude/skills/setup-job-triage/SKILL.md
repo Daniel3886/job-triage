@@ -60,15 +60,29 @@ floor is.
 
 1. The candidate in one line.
 2. Stack: disqualifying, explicitly fine, where "X or Y" stops.
-3. Role type: what they want, what they never want.
-4. Location: remote, hybrid and on-site, with the places each one allows.
+3. Role type: what they want, what they never want. Ask which neighbouring
+   kinds of work are fine (fullstack, a general software engineer role) and
+   which never are (testing, support), and whether the business domain matters
+   at all.
+4. Location: remote, hybrid and on-site, with the places each one allows. Ask
+   how many office days a week a hybrid role may ask for, and whether they would
+   relocate, and where.
 5. Salary: the floor, the target, how rates are compared.
 6. Companies: permanent bans and temporary holds.
-7. Seniority: the target and what lower levels are acceptable.
+7. Seniority: the target and what lower levels are acceptable. Ask whether a
+   role one level above the target is worth saving, and up to how many required
+   years.
 8. Language.
+9. Requirements they meet: what postings ask of a person rather than of their
+   stack — a clean criminal record, an education level, a driving licence, a
+   security clearance, the right to work in a country. Ask for each one; a
+   requirement they meet never makes a posting `UNDECIDED`.
 
-Write only what they said. An unknown stays a `<…>` placeholder and the first
-run will surface it as `UNDECIDED` with a question. Commit in the data repo:
+Write only what they said, one rule at a time, read back to them before it goes
+in. Never fill a section from onetap's green or red words, the onetap candidate
+profile or the CV: those describe the person, not their decisions, and a rule
+nobody made turns into wrong verdicts. An unknown stays a `<…>` placeholder and
+the first run will surface it as `UNDECIDED` with a question. Commit in the data repo:
 `git -C <dir> add -A && git -C <dir> commit -m "feat(criteria): initial rules"`.
 
 ## 5. Fill the LinkedIn search
