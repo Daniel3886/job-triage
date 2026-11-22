@@ -88,6 +88,21 @@ python3 .claude/skills/job-triage/sources/linkedin.py sync-filters /tmp/onetap-f
 
 4. Show what a sweep would cost before anyone runs one:
    `python3 .claude/skills/job-triage/sources/linkedin.py search --dry-run`.
+5. **The onetap search is a starting point, not the answer.** Before the first
+   sweep, show the user in one message what step 3 wrote: every keyword, every
+   location with its work model, the date window, the number of queries and the
+   cost from step 4. Then ask, in the same message:
+   - which keywords to keep. Flag a keyword that is contained in another one
+     ("React" and "React Native"): both return largely the same postings, and
+     each one multiplies the queries by the number of locations;
+   - the date window. onetap's window is copied as it is, often a month. Offer
+     it for a first sweep and a short one (one to seven days) for regular runs.
+   Write back only what they chose: a dropped keyword goes into
+   `exclude_keywords` as `"<keyword>": "<their reason>"`, so the next
+   `sync-filters` keeps it out, and the window goes into `defaults.timePosted`.
+   `sync-filters` copies onetap's window again every time it runs, so set the
+   chosen window back after each sync. Never add a keyword, location or window
+   the user did not see.
 
 If they do not use onetap, fill `keywords` and `locations` by hand from the
 template and the notes in `.claude/skills/job-triage/sources/LINKEDIN.md`.
