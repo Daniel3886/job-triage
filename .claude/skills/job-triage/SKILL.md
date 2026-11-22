@@ -465,8 +465,9 @@ entry of `manifest.json` → `agents`, each with this brief:
 > before sending the brief.) Then read each of these files in full: <its chunks>, in <dir>. For
 > each `chunk_NNN.txt` write `v_NNN.json` beside it: a JSON array, one object
 > per posting, in the shape of step 6 of `.claude/skills/job-triage/SKILL.md` —
-> `ref`, `verdict` (`SAVED`, `NOT_INTERESTED`, `UNDECIDED` with a `question`,
-> or `UNREADABLE`), `reason`, and for a save `keywords`, `workplaceType`,
+> `ref`, `verdict` (`SAVED`, `NOT_INTERESTED`, `UNDECIDED` with a `question`
+> and a `pick` — the verdict you would give, `SAVED` or `NOT_INTERESTED`, with
+> one line why — or `UNREADABLE`), `reason`, and for a save `keywords`, `workplaceType`,
 > `experienceLevels`, `employmentTypes`. Apply Gates 1–6 in order; the first
 > failure names the reason. Never judge from the title — read the
 > requirements. Every rejection quotes the line that decides it, copied
@@ -508,7 +509,8 @@ it stands — step 6 checks the keepers first and produces the file that is:
   "keywords": ["Node.js","TypeScript","AWS"], "workplaceType": ["REMOTE"],
   "experienceLevels": ["SENIOR"], "employmentTypes": ["FULL_TIME"]},
  {"ref": "linkedin:4464096634", "verdict": "UNDECIDED",
-  "question": "Company H, City X, perfect stack. The Location section lists City X as unresolved — accept or reject?"}
+  "question": "Company H, City X, perfect stack. The Location section lists City X as unresolved — accept or reject?",
+  "pick": "SAVED - the stack is a clean match and City X is one hour away."}
 ]
 ```
 
@@ -686,12 +688,28 @@ in the stack, 12-month contract.
   rejected and are not worth asking about
 - every suspected-duplicate group still live after verdicts
   (`suspected_duplicates_live` from step 7)
-- the saved ones as a list, each with company, title, salary, work model, and
-  the **onetap** link — never the original job board or LinkedIn URL
-- every `UNDECIDED` item with the question you want answered
-- anything unreadable, and any source that failed outright
+- the saved ones as a list, each with company, title, salary, work model, one
+  line on why it was kept, and the **onetap** link — never the original job
+  board or LinkedIn URL
+- **every job the candidate has to decide, in one numbered list**: all
+  `UNDECIDED` and all `UNREADABLE` items, never a sample. Each row has the
+  company, the title, why it is undecided (the question) or why it could not be
+  read, your `pick` with its one line, and a link: the onetap link when the job
+  has one, otherwise the posting's own page (`linkedin.com/jobs/view/<id>`),
+  since a LinkedIn job that was never saved has no onetap page and the
+  candidate has to be able to read it. End with how to answer: by number
+  ("1 save, 2 reject, 3 use your pick")
+- any source that failed outright
+
+The candidate should never have to ask for the rest of the list, the links or
+the reasons.
 
 ### When the candidate corrects a verdict
+
+"Use your picks" settles that batch and nothing else: each pick becomes the
+verdict, and none of them goes into `criteria.md`. A pick the candidate only
+accepted is not a decision they made. If one looks like a rule worth keeping,
+ask whether to write it down, as its own question.
 
 Update `criteria.md` so the correction survives the session. That file is the
 memory of this whole system; a correction that lives only in the conversation

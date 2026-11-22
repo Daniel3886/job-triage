@@ -100,4 +100,7 @@ decisions far above old ones.
 
 When the candidate corrects a verdict, update `criteria.md` in the data repo in
 the same session, with the date and the case. A correction that is not written
-down is made again.
+down is made again. Only the candidate's own decisions go in: an agent's pick
+that they accepted in bulk ("use your picks") is not one. When a new rule
+contradicts a table in `criteria.md`, change the table instead of adding a case
+that overrides it.
